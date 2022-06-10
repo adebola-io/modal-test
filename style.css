@@ -1,0 +1,112 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: sans-serif;
+}
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+/* the center button. */
+.center-button {
+  padding: 15px 25px;
+  border: 3px solid black;
+  border-radius: 5px;
+  transition-duration: 300ms;
+}
+.center-button:hover {
+  padding: 20px 30px;
+  background-color: black;
+  color: white;
+}
+/* the modal component. */
+.modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.modal-container::before {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 100%;
+  width: 100%;
+  filter: opacity(0.4);
+  background-color: black;
+  animation: subtle-darken 300ms;
+}
+@keyframes subtle-darken {
+  from {
+    filter: opacity(0);
+  }
+}
+.modal {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16pt;
+  font-weight: bold;
+  height: 67vh;
+  max-height: 500px;
+  width: 85vw;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 #8d8989;
+  overflow: hidden;
+  animation: modal_open 300ms;
+}
+@keyframes modal_open {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+.modal-bar {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  height: 9%;
+  min-height: 45px;
+  width: 100%;
+  background-color: black;
+}
+.modal-close-btn {
+  position: absolute;
+  right: 0;
+  transform: translateX(-30%);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+}
+.modal-close-btn::before,
+.modal-close-btn::after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 2px;
+  width: 50%;
+  border-radius: 10px;
+  background-color: white;
+}
+.modal-close-btn::before {
+  transform: rotate(45deg);
+}
+.modal-close-btn::after {
+  transform: rotate(-45deg);
+}
