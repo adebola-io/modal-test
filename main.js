@@ -15,16 +15,9 @@ function openModal() {
     container.remove();
   });
   // Join elements together.
-  bar.append(closeButton);
-  modal.prepend(bar);
-  container.append(modal);
+  bar.append(closeButton), modal.prepend(bar), container.append(modal);
   // Add the created component to the DOM.
   document.body.prepend(container);
 }
 
-/**
- * Start executing Javascript from this function.
- */
-(function main() {
-  document.querySelector(".center-button").addEventListener("click", openModal);
-})();
+document.querySelector(".center-button").addEventListener("click", openModal);
